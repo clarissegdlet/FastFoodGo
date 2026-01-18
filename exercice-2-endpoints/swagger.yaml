@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: FastFoodGo API
+  description: API REST pour l'application FastFoodGo
+  version: 1.0.0
+
+paths:
+
+  /auth/login:
+    post:
+      summary: Authentification utilisateur
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Connexion réussie
+
+  /restaurants:
+    get:
+      summary: Liste des restaurants
+      tags:
+        - Restaurants
+      responses:
+        '200':
+          description: Restaurants disponibles
+
+  /cart/add:
+    post:
+      summary: Ajouter un plat au panier
+      tags:
+        - Cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                meal_id:
+                  type: integer
+                quantity:
+                  type: integer
+      responses:
+        '200':
+          description: Panier mis à jour
+
+  /orders:
+    post:
+      summary: Créer une commande
+      tags:
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cart_id:
+                  type: integer
+                payment_id:
+                  type: string
+      responses:
+        '201':
+          description: Commande créée
