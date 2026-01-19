@@ -68,6 +68,7 @@ Pour installer le projet en mode développement ainsi que les dépendances néce
 
 ```bash
 pip install -e ".[dev]"
+```
 
 ---
 
